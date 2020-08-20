@@ -2,9 +2,9 @@
 
 namespace LaravelRevision\Tests;
 
-use LaravelRevision\Tests\TestCase;
+use Jeremynikolic\LaravelRevision\Tests\BaseTest;
 
-class RevisionGathererTest extends TestCase
+class ItWorksTest extends BaseTest
 {
 
     /** @test */

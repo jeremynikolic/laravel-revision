@@ -1,29 +1,54 @@
 {
-  "version": "0.0.1",
-  "name": "jeremynikolic/laravel-revision",
-  "description": "A package to track Laravel model, and their relations, revisions",
-  "type": "library",
-  "license": "MIT",
-  "authors": [
-    {
-      "name": "Jeremy Nikolic",
-      "email": "nikolic.jeremy@gmail.com"
+    "name": "jeremynikolic/laravel-revision",
+    "description": "A package to observer model, and their relations, changes and track them in database",
+    "keywords": [
+        "jeremynikolic",
+        "laravel-revision"
+    ],
+    "homepage": "https://github.com/jeremynikolic/laravel-revision",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Jeremy Nikolic",
+            "email": "nikolic.jeremy@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.1",
+        "illuminate/support": "^6.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^4.0",
+        "phpunit/phpunit": "^8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Jeremynikolic\\LaravelRevision\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Jeremynikolic\\LaravelRevision\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Jeremynikolic\\LaravelRevision\\LaravelRevisionServiceProvider"
+            ],
+            "aliases": {
+                "LaravelRevision": "Jeremynikolic\\LaravelRevision\\LaravelRevisionFacade"
+            }
+        }
     }
-  ],
-  "require": {
-    "genealabs/laravel-pivot-events": "^0.3.0"
-  },
-  "require-dev": {
-    "phpunit/phpunit": "9.3.7"
-  },
-  "autoload": {
-    "psr-4": {
-      "LaravelRevision\\": "src/"
-    }
-  },
-  "autoload-dev": {
-    "psr-4": {
-      "LaravelRevision\\Tests\\": "tests/"
-    }
-  }
 }
