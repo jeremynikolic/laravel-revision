@@ -16,21 +16,21 @@
         }
     ],
     "require": {
-        "php": "^7.1",
-        "illuminate/support": "^6.0"
+        "php": "^7.4",
+        "illuminate/support": "^7.0"
     },
     "require-dev": {
-        "orchestra/testbench": "^4.0",
-        "phpunit/phpunit": "^8.0"
+        "orchestra/testbench": "^5.0",
+        "phpunit/phpunit": "^9.0"
     },
     "autoload": {
         "psr-4": {
-            "Jeremynikolic\\LaravelRevision\\": "src"
+            "JeremyNikolic\\Revision\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Jeremynikolic\\LaravelRevision\\Tests\\": "tests"
+            "JeremyNikolic\\Revision\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -44,11 +44,8 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Jeremynikolic\\LaravelRevision\\LaravelRevisionServiceProvider"
-            ],
-            "aliases": {
-                "LaravelRevision": "Jeremynikolic\\LaravelRevision\\LaravelRevisionFacade"
-            }
+                "RevisionServiceProvider"
+            ]
         }
     }
 }
