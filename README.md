@@ -1,11 +1,16 @@
-# Very short description of the package
+# A package to gather Models changes and store them as revisions
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/jeremynikolic/laravel-revision.svg?style=flat-square)](https://packagist.org/packages/jeremynikolic/laravel-revision)
 [![Build Status](https://img.shields.io/travis/jeremynikolic/laravel-revision/master.svg?style=flat-square)](https://travis-ci.org/jeremynikolic/laravel-revision)
 [![Quality Score](https://img.shields.io/scrutinizer/g/jeremynikolic/laravel-revision.svg?style=flat-square)](https://scrutinizer-ci.com/g/jeremynikolic/laravel-revision)
 [![Total Downloads](https://img.shields.io/packagist/dt/jeremynikolic/laravel-revision.svg?style=flat-square)](https://packagist.org/packages/jeremynikolic/laravel-revision)
 
-This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what PSRs you support to avoid any confusion with users and contributors.
+This package gather changes done to a model. Supported changes are:
+- attributes
+- ~~relations~~
+- ~~relations action (added, removed, etc)~~
+
+This package is greatly inspired by [spatie/laravel-activity-log](https://github.com/spatie/laravel-activitylog) and a client project I recently worked on.
 
 ## Installation
 
@@ -18,7 +23,7 @@ composer require jeremynikolic/laravel-revision
 ## Usage
 
 ``` php
-// Usage description here
+To come
 ```
 
 ### Testing
