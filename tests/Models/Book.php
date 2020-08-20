@@ -14,8 +14,12 @@ class Book extends Model
 
     protected     $guarded            = [];
 
-    public        $attributesToDetect = ['title'];
+    public static $attributesToDetect = ['title'];
 
     public static $detectOnlyDirty    = false;
 
+    protected     $casts              = [
+        'updated_at' => 'datetime:Y-m-d',
+        'content'    => 'array',
+    ];
 }

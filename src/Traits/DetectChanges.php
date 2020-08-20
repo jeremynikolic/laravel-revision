@@ -24,7 +24,23 @@ trait DetectChanges
         $attributes = $model->attributesToDetect();
 
         foreach ($attributes as $attribute) {
-            $changes[$attribute] = $model->$attribute;
+            $changes[$attribute] = $model->getAttribute($attribute);
+            if (is_null($changes[$attribute])) {
+                continue;
+            }
+
+            if ($model->isDateAttribute($attribute)) {
+                $changes[$attribute] = $model->serializeDate($model->asDateTime($changes[$attribute]));
+            }
+
+            if ($model->hasCast($attribute)) {
+                $cast = $model->getCasts()[$attribute];
+
+                if ($model->isCustomDateTimeCast($cast)) {
+                    $changes[$attribute] = $model->asDateTime($changes[$attribute])
+                                                 ->format(explode(':', $cast, 2)[1]);
+                }
+            }
         }
 
         return $changes;
@@ -46,7 +62,7 @@ trait DetectChanges
         }
 
         if ($this->onlyDirty() && isset($properties['old'])) {
-            $properties['attributes'] = $this->getDirty();
+            $properties['attributes'] = array_udiff($properties['attributes'], $properties['old'], [$this, 'compare']);
 
             $properties['old'] = collect($properties['old'])
                 ->only(array_keys($properties['attributes']))
@@ -63,7 +79,7 @@ trait DetectChanges
 
     public function attributesToDetect(): array
     {
-        return $this->attributesToDetect;
+        return static::$attributesToDetect;
     }
 
     public function compare($new, $old)
